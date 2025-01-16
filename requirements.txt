@@ -2,5 +2,5 @@ fastapi
 gspread
 pandas
 uvicorn
-python-dotenv
+python-dotenv==1.0.0
 pydantic-settings
