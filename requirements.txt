@@ -1,0 +1,6 @@
+fastapi
+gspread
+pandas
+uvicorn
+python-dotenv
+pydantic-settings
