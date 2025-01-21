@@ -1,9 +1,14 @@
+"""
+    Módulo para configuração do projeto
+"""
 from functools import lru_cache
 from pydantic_settings import BaseSettings
-import os
 
 
 class AppSettings(BaseSettings):
+    """
+    Classe Configuração das variáveis de ambiente
+    """
     app_name: str = "PanoramADS API"
     project_id: str
     private_key_id: str
@@ -16,5 +21,8 @@ class AppSettings(BaseSettings):
 
 @lru_cache
 def get_settings() -> AppSettings:
+    """
+    Método que retorna as configurações ao aplicativo
+    """
     settings = AppSettings()
     return settings
