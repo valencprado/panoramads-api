@@ -45,4 +45,3 @@ def get_structured_data():
         return {"data": data_formatted}
     except gspread.exceptions.APIError as exception:
         return {"code": 500, "message": "Internal Server Error", "details": f"{exception}"}
-      
