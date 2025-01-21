@@ -34,13 +34,15 @@ def get_structured_data():
         sh = gc.open_by_key("1QKW0sD2zePl-lNdxQfWzeNgxsY_PUHUSOsjkAMB1AhI")
         ws = sh.sheet1
         data = ws.get("B2:M", major_dimension="COLUMNS")
-        perguntas = ["idade", "genero", "semestre", "atuacao_atual", "modalidade_trabalho", "regiao_trabalho", "regiao", 
-                     "porte_empresa", "area_atual", "area_desejo", "satisfacao_trabalho", "dificuldade_trabalho"]
-
+        perguntas = ["idade", "genero", "semestre", "atuacao_atual",
+                     "modalidade_trabalho", "regiao_trabalho",
+                     "regiao", 
+                     "porte_empresa", "area_atual", "area_desejo", 
+                     "satisfacao_trabalho", "dificuldade_trabalho"]
         data_formatted = {
           name: count_values(data[i]) for i, name in enumerate(perguntas)
         }
-        
         return {"data": data_formatted}
     except gspread.exceptions.APIError as exception:
         return {"code": 500, "message": "Internal Server Error", "details": f"{exception}"}
+      

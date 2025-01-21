@@ -5,7 +5,7 @@ from functools import lru_cache
 from pydantic_settings import BaseSettings
 
 
-class AppSettings(BaseSettings):
+class AppSettings(BaseSettings): # pylint: disable=too-few-public-methods          
     """
     Classe Configuração das variáveis de ambiente
     """
@@ -17,6 +17,9 @@ class AppSettings(BaseSettings):
     client_id: str
     client_url: str
     class Config:
+        """
+        Classe de configuração interna
+        """
         env_file = ".env"
 
 @lru_cache
