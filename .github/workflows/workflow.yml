@@ -43,5 +43,13 @@ jobs:
             python -m pip install --upgrade pip
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         - name: Test with pytest
+          env: 
+            PROJECT_ID: ${{  secrets.PROJECT_ID }}
+            PRIVATE_KEY_ID: ${{  secrets.PRIVATE_KEY_ID }}
+            PRIVATE_KEY: ${{  secrets.PRIVATE_KEY }}
+            CLIENT_EMAIL: ${{  secrets.CLIENT_EMAIL }}
+            CLIENT_ID: ${{  secrets.CLIENT_ID }}
+            CLIENT_URL: ${{  secrets.CLIENT_URL }}
+            ORIGINS: ${{  secrets.ORIGINS }}
           run: |
             pytest --cov
