@@ -2,8 +2,7 @@
     Módulo para configuração do projeto
 """
 from functools import lru_cache
-from pydantic_settings import BaseSettings
-
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class AppSettings(BaseSettings): # pylint: disable=too-few-public-methods
     """
@@ -16,11 +15,7 @@ class AppSettings(BaseSettings): # pylint: disable=too-few-public-methods
     client_email: str
     client_id: str
     client_url: str
-    class Config:# pylint: disable=too-few-public-methods
-        """
-        Classe de configuração interna
-        """
-        env_file = ".env"
+    model_config = SettingsConfigDict(extra="allow", env_file=".env")
 
 @lru_cache
 def get_settings() -> AppSettings:
